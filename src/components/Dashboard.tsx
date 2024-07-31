@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 
 const Dashboard = () => {
   return (
@@ -49,7 +48,7 @@ const Dashboard = () => {
 
       {/* Tareas Pendientes o Recordatorios */}
       <aside className="w-64 p-6 bg-white rounded-lg shadow-md overflow-y-auto">
-        <h3 className="text-xl font-bold">Tareas Pendientes</h3>
+        <h3 className="text-xl font-bold text-red-600">Tareas Pendientes</h3>
         <ul className="list-disc pl-5">
           <li>Pagar monotributo</li>
           <li>Revisar gastos del mes</li>
