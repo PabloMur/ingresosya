@@ -10,7 +10,7 @@ interface NavigationBtnProps {
 
 const NavigationBtn = ({ route, children, icon }: NavigationBtnProps) => {
   return (
-    <Link href={route}>
+    <Link href={route} className="w-full rounded-xl hover:shadow-lg ">
       <div className="font-bold p-3  w-full flex items-center cursor-pointer">
         {icon && (
           <span className="mr-2">

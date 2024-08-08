@@ -7,11 +7,12 @@ import profile from "../../public/profile.svg";
 import reports from "../../public/reports.svg";
 import home from "../../public/home.svg";
 import support from "../../public/support.svg";
+import tasks from "../../public/tasks.svg";
 
 const Sidebar = () => {
   return (
     <aside className="text-black bg-white border-r-2  h-[90vh] w-1/5 flex flex-col justify-between items-center">
-      <ul className="flex flex-col justify-start items-start w-full px-5">
+      <ul className="flex flex-col justify-start items-start w-full p-5">
         <NavigationBtn route={"/"} icon={home}>
           Inicio
         </NavigationBtn>
@@ -25,10 +26,13 @@ const Sidebar = () => {
           Reportes
         </NavigationBtn>
         <NavigationBtn route={"/cost-entry"} icon={cost}>
-          Registro de Costos
+          Costos
         </NavigationBtn>
         <NavigationBtn route={"/income"} icon={income}>
-          Registro de Ingresos
+          Ingresos
+        </NavigationBtn>
+        <NavigationBtn route={"/tasks"} icon={tasks}>
+          Tareas
         </NavigationBtn>
         <NavigationBtn route={"/support"} icon={support}>
           Soporte
