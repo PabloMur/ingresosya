@@ -2,9 +2,11 @@
 import { useState } from "react";
 import exit from "../../../public/exit.svg";
 import Image from "next/image";
+import { useHandleLogout } from "@/hooks/uiHooks";
 
 const CloseSession = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const logOut = useHandleLogout();
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -52,7 +54,10 @@ const CloseSession = () => {
                 >
                   Cancelar
                 </button>
-                <button className="bg-green-600 text-white px-4 py-2 rounded">
+                <button
+                  className="bg-green-600 text-white px-4 py-2 rounded"
+                  onClick={logOut}
+                >
                   Sí, cerrar sesión
                 </button>
               </div>
