@@ -32,17 +32,7 @@ export const authOptions: AuthOptions = {
 
         if (querySnapshot.empty) {
           console.log("Usuario no existe, creando uno nuevo.");
-          // const newUser = new User(
-          //   user.name || "Usuario sin nombre",
-          //   user.email,
-          //   user.image || "",
-          //   [], // Lista vacía de mascotas
-          //   "", // Phone
-          //   "" // Address
-          // );
-
-          // const createdUser = (await createUser(newUser)) as any;
-          // userId = createdUser.id;
+          // Aquí puedes crear el nuevo usuario en la base de datos si es necesario
         } else {
           const existingUserDoc = querySnapshot.docs[0];
           userId = existingUserDoc.id;
@@ -73,9 +63,6 @@ export const authOptions: AuthOptions = {
       }
       return session;
     },
-  },
-  pages: {
-    signOut: "/",
   },
 };
 

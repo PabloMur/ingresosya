@@ -1,27 +1,43 @@
 "use client";
-import { useGoto } from "@/hooks/uiHooks";
+import { motion } from "framer-motion";
+import { StartBtn } from "@/components/buttons/StartBtn";
+import { WelcomeSlider } from "@/components/ui/WelcomeSlider";
 
 const WelcomePage = () => {
-  const goto = useGoto();
-
   return (
-    <div className="bg-white h-screen w-full flex justify-center items-center">
-      <div className="h-full w-full md:w-1/2 p-8 flex flex-col justify-center items-start">
-        <h1 className="text-4xl font-bold text-red-600 mb-4">IngresosYa!</h1>
-        <p className="text-lg text-gray-700 mb-2">
-          Controla tus ingresos y gastos desde un solo lugar
-        </p>
-        <p className="text-lg text-gray-700 mb-6">
-          Una herramienta de gestión hecha por y para Riders
-        </p>
-        <button className="bg-red-600 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-red-500 transition">
-          Comenzar
-        </button>
+    <div className="bg-red-600 h-screen w-full flex flex-col md:flex-row">
+      <div className="flex-1 p-5 md:p-20 flex flex-col justify-center items-start gap-3">
+        <motion.h1
+          className="text-4xl md:text-6xl font-bold text-white mb-4"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          IngresosYa!
+        </motion.h1>
+
+        <motion.p
+          className="text-lg text-white mb-2"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+        >
+          Controla tus ingresos y gastos desde un solo lugar. <br /> Una
+          herramienta de gestión hecha por y para Riders
+        </motion.p>
+
+        <StartBtn />
       </div>
-      <div className="h-full w-full md:w-1/2 hidden md:flex justify-center items-center py-20">
-        <div className="bg-red-400 h-full w-full rounded-tl-3xl rounded-bl-3xl">
-          imagenes que cambian
-        </div>
+
+      <div className="flex justify-center items-center py-10 md:py-20 relative w-[55%]">
+        <div
+          className="absolute h-full w-[80%] right-0 bg-[#00DAFD] z-0"
+          style={{
+            clipPath: "polygon(10% 0, 100% 0, 100% 100%, 0% 100%)",
+          }}
+        ></div>
+
+        <WelcomeSlider />
       </div>
     </div>
   );

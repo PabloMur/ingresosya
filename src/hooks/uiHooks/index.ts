@@ -2,7 +2,7 @@
 import { useRecoilState } from "recoil";
 import { usePathname, useRouter } from "next/navigation";
 import { loaderAtom } from "@/lib/Atoms";
-import { useSession, signOut } from "next-auth/react";
+import { useSession, signOut, signIn } from "next-auth/react";
 
 export const useLoader = (): [boolean, () => void] => {
   const [loaderState, setLoaderState] = useRecoilState(loaderAtom);
@@ -34,10 +34,26 @@ export const useProtectedPage = () => {
   };
 };
 
-export const useHandleLogout = () => {
-  const goto = useGoto();
+export const useSignin = () => {
   return () => {
-    signOut();
-    goto("/login");
+    signIn("google", { callbackUrl: "/" });
+  };
+};
+export const useHandleLogout = () => {
+  return () => {
+    console.log("Se esta cerrando la sesion");
+    signOut({ callbackUrl: "/welcome" });
+  };
+};
+
+export const useStartBtnHook = () => {
+  const goto = useGoto();
+  const { data: session, status } = useSession();
+
+  return () => {
+    if (status === "unauthenticated") goto("/login");
+    else {
+      goto("/");
+    }
   };
 };

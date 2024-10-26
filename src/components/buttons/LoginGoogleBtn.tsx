@@ -1,15 +1,16 @@
 "use client";
-import { signIn } from "next-auth/react";
 import Image from "next/image";
 import googleIcon from "../../../public/google-icon.svg";
+import { useSignin } from "@/hooks/uiHooks";
+
 const LoginGoogleBtn = () => {
-  const handleSignIn = () => {
-    signIn();
-  };
+  const signIn = useSignin();
+
+  const handleSignIn = () => signIn();
 
   return (
     <button
-      className="text-black border border-black/50 p-4 rounded-lg flex justify-center items-center gap-2"
+      className="text-black p-4 rounded-full flex justify-center items-center gap-2 shadow-lg"
       onClick={handleSignIn}
     >
       <Image src={googleIcon} alt="google icon" width={30} height={30}></Image>

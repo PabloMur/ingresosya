@@ -2,11 +2,14 @@
 import { useState } from "react";
 import exit from "../../../public/exit.svg";
 import Image from "next/image";
-import { useHandleLogout } from "@/hooks/uiHooks";
+import { signOut } from "next-auth/react";
 
 const CloseSession = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const logOut = useHandleLogout();
+
+  const handleSignOut = () => {
+    signOut({ callbackUrl: "/welcome", redirect: true }); // Redirige a la página principal después de cerrar sesión
+  };
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -56,7 +59,7 @@ const CloseSession = () => {
                 </button>
                 <button
                   className="bg-green-600 text-white px-4 py-2 rounded"
-                  onClick={logOut}
+                  onClick={handleSignOut}
                 >
                   Sí, cerrar sesión
                 </button>

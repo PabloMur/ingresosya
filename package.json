@@ -11,7 +11,7 @@
   "dependencies": {
     "atom": "^1.4.2",
     "firebase-admin": "^12.6.0",
-    "framer-motion": "^11.3.23",
+    "framer-motion": "^11.11.10",
     "next": "14.2.5",
     "next-auth": "^4.24.8",
     "react": "^18",
