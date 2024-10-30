@@ -1,8 +1,10 @@
 // hooks/uiHooks.ts
 import { useRecoilState } from "recoil";
 import { usePathname, useRouter } from "next/navigation";
-import { loaderAtom } from "@/lib/Atoms";
+import { foldableMenuAtom, loaderAtom } from "@/lib/Atoms";
 import { useSession, signOut, signIn } from "next-auth/react";
+import { useEffect, useState } from "react";
+import { APIgetWeather } from "@/lib/ApiCall";
 
 export const useLoader = (): [boolean, () => void] => {
   const [loaderState, setLoaderState] = useRecoilState(loaderAtom);
@@ -56,4 +58,39 @@ export const useStartBtnHook = () => {
       goto("/");
     }
   };
+};
+
+export const useWeather = () => {
+  const [data, setData] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const fetchWeather = async () => {
+    try {
+      const weatherData = await APIgetWeather();
+      setData(weatherData);
+    } catch (error) {
+      setError("Error al cargar el clima");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchWeather();
+  }, []);
+
+  return { data, loading, error };
+};
+
+//Este hook lo que permite es ver el stado del atomo ligado al menu desplegable y ademas me retorna una funcion para activar
+//desactivar el mencionado menu
+export const useBurgerBtn = () => {
+  const [menuState, setMenuState] = useRecoilState(foldableMenuAtom);
+
+  const handleMenuState = () => {
+    setMenuState(!menuState);
+  };
+
+  return { menuState, handleMenuState };
 };

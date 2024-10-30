@@ -41,7 +41,6 @@ const Sidebar = () => {
             Soporte
           </NavigationBtn>
         </ul>
-        <CloseSession />
       </aside>
     )
   );

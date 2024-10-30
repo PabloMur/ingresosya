@@ -52,7 +52,7 @@ const CloseSession = () => {
               </p>
               <div className="border-t-2 mt-4 pt-4 flex justify-end space-x-4">
                 <button
-                  className="bg-red-600 text-white px-4 py-2 rounded"
+                  className="bg-red-600 text-white px-4 py-2 rounded shadow-lg"
                   onClick={handleCloseModal}
                 >
                   Cancelar
