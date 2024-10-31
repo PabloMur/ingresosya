@@ -1,25 +1,21 @@
 "use client";
 import { useBurgerBtn } from "@/hooks/uiHooks";
-
-interface ButtonProps {
-  handler: () => void; // Función que será llamada al hacer clic
-}
-
-const Cross = ({ handler }: ButtonProps) => {
-  return <button onClick={handler}>Cross</button>;
-};
-
-const Lines = ({ handler }: ButtonProps) => {
-  return <button onClick={handler}>Lines</button>; // Cambié "Cross" por "Lines" para que sea más representativo
-};
+import burger from "../../../public/burger-menu-svgrepo-com.svg";
+import cross from "../../../public/cross-svgrepo-com.svg";
+import Image from "next/image";
 
 const BurgerBtn = () => {
   const { menuState, handleMenuState } = useBurgerBtn();
 
-  return menuState ? (
-    <Cross handler={handleMenuState} />
-  ) : (
-    <Lines handler={handleMenuState} />
+  return (
+    <button onClick={handleMenuState} className="sm:hidden">
+      <Image
+        src={menuState ? cross : burger}
+        alt="menu icon"
+        height={50}
+        width={50}
+      ></Image>
+    </button>
   );
 };
 

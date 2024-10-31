@@ -1,5 +1,5 @@
 import { CloseSession } from "./buttons/CloseSession";
-import { NavigationBtn } from "./ui/NavigationBtn";
+import NavigationBtn from "./ui/NavigationBtn";
 import settings from "../../public/settings.svg";
 import income from "../../public/income.svg";
 import cost from "../../public/cost.svg";

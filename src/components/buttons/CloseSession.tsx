@@ -47,7 +47,7 @@ const CloseSession = () => {
               </button>
             </div>
             <div className="p-4">
-              <p className="text-center py-4 font-bold">
+              <p className="text-center text-black py-4 font-bold">
                 ¿Seguro que deseas cerrar la sesión?
               </p>
               <div className="border-t-2 mt-4 pt-4 flex justify-end space-x-4">

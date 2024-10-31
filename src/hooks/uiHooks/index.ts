@@ -94,3 +94,11 @@ export const useBurgerBtn = () => {
 
   return { menuState, handleMenuState };
 };
+
+export const useFoldableMenu = () => {
+  const [menuActive, setMenuState] = useRecoilState(foldableMenuAtom);
+  const handleMenuState = () => {
+    setMenuState(!menuActive);
+  };
+  return { menuActive, handleMenuState };
+};

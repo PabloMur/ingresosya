@@ -1,6 +1,5 @@
 "use client";
 import { useWeather } from "@/hooks/uiHooks";
-import { div } from "framer-motion/client";
 
 function WeatherComp() {
   const { loading, data, error } = useWeather();
