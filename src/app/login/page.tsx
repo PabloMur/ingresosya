@@ -3,14 +3,9 @@ import Image from "next/image";
 import backgroundDesktop from "../../../public/background.png";
 import { LoginGoogleBtn } from "@/components/buttons/LoginGoogleBtn";
 import { useProtectedPage } from "@/hooks/uiHooks";
-import { useEffect } from "react";
 
 const LoginPage = () => {
-  const protectedPage = useProtectedPage();
-
-  useEffect(() => {
-    protectedPage();
-  }, []);
+  useProtectedPage();
 
   return (
     <div className="h-screen w-full flex flex-col sm:flex-row justify-center items-center bg-slate-50 sm:p-20">

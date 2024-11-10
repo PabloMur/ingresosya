@@ -11,19 +11,15 @@ const CloseSession = () => {
     signOut({ callbackUrl: "/welcome", redirect: true }); // Redirige a la página principal después de cerrar sesión
   };
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
+  const handleModal = () => {
+    setIsModalOpen(!isModalOpen);
   };
 
   return (
-    <div className="w-full p-3 flex justify-center items-center">
+    <div className="w-full flex justify-center items-center">
       <button
-        className="bg-red-600 font-bold rounded-full p-2 px-3 text-white flex justify-center items-center gap-2 hover:shadow-lg"
-        onClick={handleOpenModal}
+        className="bg-red-600 font-bold rounded-full p-2 px-3 text-white flex justify-center items-center gap-2 hover:shadow-lg w-full"
+        onClick={handleModal}
       >
         Cerrar Sesión
         <Image
@@ -41,7 +37,7 @@ const CloseSession = () => {
             <div className="p-4 flex justify-end">
               <button
                 className="text-gray-600 hover:text-gray-800"
-                onClick={handleCloseModal}
+                onClick={handleModal}
               >
                 Cerrar
               </button>
@@ -53,7 +49,7 @@ const CloseSession = () => {
               <div className="border-t-2 mt-4 pt-4 flex justify-end space-x-4">
                 <button
                   className="bg-red-600 text-white px-4 py-2 rounded shadow-lg"
-                  onClick={handleCloseModal}
+                  onClick={handleModal}
                 >
                   Cancelar
                 </button>

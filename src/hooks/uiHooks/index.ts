@@ -5,6 +5,8 @@ import { foldableMenuAtom, loaderAtom } from "@/lib/Atoms";
 import { useSession, signOut, signIn } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { APIgetWeather } from "@/lib/ApiCall";
+import burger from "../../../public/burger-menu-svgrepo-com.svg";
+import cross from "../../../public/cross-svgrepo-com.svg";
 
 export const useLoader = (): [boolean, () => void] => {
   const [loaderState, setLoaderState] = useRecoilState(loaderAtom);
@@ -29,11 +31,9 @@ export const useGoto = () => {
 export const useProtectedPage = () => {
   const { data: session, status } = useSession();
   const goto = useGoto();
-  return () => {
-    if (status === "unauthenticated") {
-      goto("/login");
-    }
-  };
+  if (status === "unauthenticated") {
+    goto("/login");
+  }
 };
 
 export const useSignin = () => {
@@ -43,7 +43,6 @@ export const useSignin = () => {
 };
 export const useHandleLogout = () => {
   return () => {
-    console.log("Se esta cerrando la sesion");
     signOut({ callbackUrl: "/welcome" });
   };
 };
@@ -92,7 +91,7 @@ export const useBurgerBtn = () => {
     setMenuState(!menuState);
   };
 
-  return { menuState, handleMenuState };
+  return { menuState, handleMenuState, burger, cross };
 };
 
 export const useFoldableMenu = () => {
@@ -101,4 +100,13 @@ export const useFoldableMenu = () => {
     setMenuState(!menuActive);
   };
   return { menuActive, handleMenuState };
+};
+
+export const useWelcomeMessage = () => {
+  const { data: session, status } = useSession();
+  const active = status === "authenticated";
+  const firstName = session?.user?.name?.split(" ")[0];
+  const firstLetterName = firstName?.[0];
+
+  return { active, firstName, firstLetterName };
 };
