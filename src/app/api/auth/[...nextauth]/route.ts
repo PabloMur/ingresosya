@@ -1,6 +1,6 @@
 import NextAuth, { AuthOptions, SessionStrategy } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import { firestore } from "@/lib/FirebaseConn";
+import { firestore } from "../../../../lib/Firebase";
 import { JWT } from "next-auth/jwt";
 import { Session } from "next-auth";
 
