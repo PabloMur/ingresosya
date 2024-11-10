@@ -8,8 +8,8 @@ import { Session } from "next-auth";
 const authOptions: AuthOptions = {
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+      clientId: process.env.GOOGLE_CLIENT_ID as any,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as any,
     }),
   ],
   session: {
