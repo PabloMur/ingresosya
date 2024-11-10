@@ -5,7 +5,7 @@ import { JWT } from "next-auth/jwt";
 import { Session } from "next-auth";
 
 // Configuración de opciones de autenticación
-export const authOptions: AuthOptions = {
+const authOptions: AuthOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
