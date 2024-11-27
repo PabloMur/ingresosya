@@ -11,12 +11,12 @@ import tasks from "../../public/tasks.svg";
 import { useHideComponent } from "@/hooks/uiHooks";
 
 const Sidebar = () => {
-  const active = !useHideComponent(["/login", "/welcome"]);
+  const active = !useHideComponent(["/", "/login", "/welcome"]);
   return (
     active && (
       <aside className="hidden text-black bg-white border-r-2  h-[90vh] md:w-1/5 md:min-w-[250px] md:flex flex-col justify-between items-center">
         <ul className="flex flex-col justify-start items-start w-full p-5">
-          <NavigationBtn route={"/"} icon={home}>
+          <NavigationBtn route={"/home"} icon={home}>
             Inicio
           </NavigationBtn>
           <NavigationBtn route={"/profile"} icon={profile}>

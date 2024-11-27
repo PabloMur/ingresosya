@@ -5,7 +5,7 @@ import WeatherComp from "./WeatherComp";
 import { TasksAuxSidebar } from "./TasksAuxSidebar";
 
 const AuxSidebar = () => {
-  const active = !useHideComponent(["/login", "/welcome"]);
+  const active = !useHideComponent(["/", "/login", "/welcome"]);
 
   return (
     active && (

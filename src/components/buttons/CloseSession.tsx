@@ -8,7 +8,7 @@ const CloseSession = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSignOut = () => {
-    signOut({ callbackUrl: "/welcome", redirect: true }); // Redirige a la página principal después de cerrar sesión
+    signOut({ callbackUrl: "/", redirect: true }); // Redirige a la página principal después de cerrar sesión
   };
 
   const handleModal = () => {

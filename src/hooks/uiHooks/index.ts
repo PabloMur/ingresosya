@@ -29,7 +29,7 @@ export const useGoto = () => {
 };
 
 export const useProtectedPage = () => {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const goto = useGoto();
   if (status === "unauthenticated") {
     goto("/login");
@@ -38,7 +38,7 @@ export const useProtectedPage = () => {
 
 export const useSignin = () => {
   return () => {
-    signIn("google", { callbackUrl: "/" });
+    signIn("google", { callbackUrl: "/home" });
   };
 };
 export const useHandleLogout = () => {
@@ -49,12 +49,12 @@ export const useHandleLogout = () => {
 
 export const useStartBtnHook = () => {
   const goto = useGoto();
-  const { data: session, status } = useSession();
+  const { status } = useSession();
 
   return () => {
     if (status === "unauthenticated") goto("/login");
     else {
-      goto("/");
+      goto("/home");
     }
   };
 };

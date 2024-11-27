@@ -6,7 +6,7 @@ import { FoldableMenu } from "./FoldableMenu";
 import { WelcomeMessage } from "./ui/WelcomeMessage";
 
 const Header = () => {
-  const active = !useHideComponent(["/login", "/welcome"]);
+  const active = !useHideComponent(["/", "/login", "/welcome"]);
 
   return (
     active && (
